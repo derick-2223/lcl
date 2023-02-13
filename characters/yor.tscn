@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/yor.gd" type="Script" id=1]
+
+[node name="default_character" type="KinematicBody2D" groups=["girls"]]
+scale = Vector2( 0.8, 0.8 )
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="hair" type="AnimatedSprite" parent="."]
+
+[node name="face" type="AnimatedSprite" parent="."]
+
+[node name="body" type="AnimatedSprite" parent="."]
+show_behind_parent = true
+
+[node name="shadow" type="Sprite" parent="."]
+show_behind_parent = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

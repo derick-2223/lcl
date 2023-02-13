@@ -1,0 +1,349 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://LCL-FULL + Assets/assets/fonts/haedus/Haedus.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://LCL-FULL + Assets/assets/fonts/PermanentMarker-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://UI/settings.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.145098, 0.0196078, 0.0588235, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Settings:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 244 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Settings:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "settings_anim"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 0.4, 0.4 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Settings:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 244 ), Vector2( 328, 196 ), Vector2( 152, 114 ), Vector2( 64, 71 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "settings_cancel_anim"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Settings:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 0.4, 0.4 ), Vector2( 0.2, 0.2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Settings:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 64, 71 ), Vector2( 152, 114 ), Vector2( 328, 196 ), Vector2( 416, 244 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Settings")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Settings:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Settings" type="Panel"]
+modulate = Color( 1, 1, 1, 0.941176 )
+anchor_left = 0.496
+anchor_top = 0.49
+anchor_right = 0.496
+anchor_bottom = 0.49
+margin_left = -44.904
+margin_top = -25.0
+margin_right = 861.098
+margin_bottom = 454.0
+rect_scale = Vector2( 0.1, 0.1 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_horizontal_guides_": [ -128.0, 71.0, 530.0, 114.0, 495.0, 196.0, 387.0, 245.0, 340.0, 269.0, 317.0 ],
+"_edit_vertical_guides_": [ 64.0, 960.0, 152.0, 877.0, 328.0, 690.0, 416.0, 597.0, 463.0, 554.0 ]
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -87.5
+margin_top = 3.0
+margin_right = 91.5
+margin_bottom = 95.0
+custom_colors/font_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 10
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.082
+anchor_top = 0.234
+anchor_right = 0.082
+anchor_bottom = 0.234
+margin_left = -22.976
+margin_top = 8.192
+margin_right = 297.024
+margin_bottom = 262.192
+
+[node name="SFX" type="Label" parent="VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 6
+custom_fonts/font = SubResource( 3 )
+text = "SOUND EFFECTS"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 320.0
+margin_bottom = 82.0
+theme = ExtResource( 3 )
+
+[node name="BGM" type="Label" parent="VBoxContainer"]
+margin_top = 86.0
+margin_right = 320.0
+margin_bottom = 124.0
+custom_colors/font_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 6
+custom_fonts/font = SubResource( 3 )
+text = "BACKGROUND MUSIC"
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer"]
+margin_top = 128.0
+margin_right = 320.0
+margin_bottom = 168.0
+theme = ExtResource( 3 )
+
+[node name="NSFW" type="Label" parent="VBoxContainer"]
+margin_top = 172.0
+margin_right = 320.0
+margin_bottom = 210.0
+custom_colors/font_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 6
+custom_fonts/font = SubResource( 3 )
+text = "NSFW MOANS"
+
+[node name="HSlider3" type="HSlider" parent="VBoxContainer"]
+margin_top = 214.0
+margin_right = 320.0
+margin_bottom = 254.0
+theme = ExtResource( 3 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 0.618
+anchor_top = 0.273
+anchor_right = 0.618
+anchor_bottom = 0.273
+margin_left = -19.568
+margin_top = -11.776
+margin_right = 272.432
+margin_bottom = 232.224
+custom_constants/separation = 20
+
+[node name="Fullscreen" type="CheckBox" parent="VBoxContainer2"]
+margin_right = 292.0
+margin_bottom = 46.0
+theme = ExtResource( 3 )
+text = "  Fullscreen"
+
+[node name="Clear_data" type="CheckBox" parent="VBoxContainer2"]
+margin_top = 66.0
+margin_right = 292.0
+margin_bottom = 112.0
+theme = ExtResource( 3 )
+text = "  Clear data"
+
+[node name="save_notifs" type="CheckBox" parent="VBoxContainer2"]
+margin_top = 132.0
+margin_right = 292.0
+margin_bottom = 178.0
+theme = ExtResource( 3 )
+text = "  save notifs"
+
+[node name="touch controls" type="CheckBox" parent="VBoxContainer2"]
+margin_top = 198.0
+margin_right = 292.0
+margin_bottom = 244.0
+theme = ExtResource( 3 )
+text = "  touch controls"
+
+[node name="SAVE_BUTTON" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 41.0
+margin_top = -64.0
+margin_right = 168.0
+margin_bottom = -22.0
+custom_colors/font_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 5 )
+text = "SAVE"
+
+[node name="CANCEL_BUTTON" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -64.0
+margin_right = -33.0
+margin_bottom = -22.0
+custom_colors/font_color = Color( 0.980392, 0.447059, 0.611765, 1 )
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 5 )
+text = "CANCEL"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+reset_on_save = false
+anims/RESET = SubResource( 10 )
+anims/settings_anim = SubResource( 11 )
+anims/settings_cancel_anim = SubResource( 12 )
+
+[connection signal="pressed" from="CANCEL_BUTTON" to="." method="_on_CANCEL_BUTTON_pressed"]

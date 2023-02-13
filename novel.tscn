@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://dialog.gd" type="Script" id=1]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_1/Shocked.png" type="Texture" id=2]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_1/Smile.png" type="Texture" id=3]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/cutscene0/page_54.png" type="Texture" id=4]
+[ext_resource path="res://novel.gd" type="Script" id=5]
+[ext_resource path="res://LCL-FULL + Assets/assets/fonts/Prototype.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://main_dialog.gd" type="Script" id=7]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_0b.png" type="Texture" id=8]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_3/2.png" type="Texture" id=9]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_0.png" type="Texture" id=10]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_2/1.png" type="Texture" id=11]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_2/2.png" type="Texture" id=12]
+[ext_resource path="res://LCL-FULL + Assets/assets/cutscenes/avatars/CHAR_3/1.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "shiolp",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "shiolp",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "melissa",
+"speed": 2.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "eila",
+"speed": 2.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 6 )
+
+[node name="novel" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="dialog" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 515.75, 298.75 )
+scale = Vector2( 0.941203, 0.967305 )
+texture = ExtResource( 4 )
+
+[node name="point1" type="Position2D" parent="."]
+position = Vector2( 128, 480 )
+
+[node name="point2" type="Position2D" parent="."]
+position = Vector2( 320, 480 )
+
+[node name="point3" type="Position2D" parent="."]
+position = Vector2( 512, 480 )
+
+[node name="point4" type="Position2D" parent="."]
+position = Vector2( 704, 480 )
+
+[node name="point5" type="Position2D" parent="."]
+position = Vector2( 896, 480 )
+
+[node name="main_dialog" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+
+[node name="tamara" type="AnimatedSprite" parent="main_dialog"]
+visible = false
+position = Vector2( 1215, 135 )
+frames = SubResource( 4 )
+animation = "shiolp"
+frame = 1
+playing = true
+
+[node name="shiolp" type="AnimatedSprite" parent="main_dialog"]
+visible = false
+position = Vector2( 512, -157 )
+frames = SubResource( 5 )
+animation = "shiolp"
+playing = true
+
+[node name="melissa" type="AnimatedSprite" parent="main_dialog"]
+visible = false
+position = Vector2( 1224, 420 )
+frames = SubResource( 6 )
+animation = "melissa"
+playing = true
+
+[node name="eila" type="AnimatedSprite" parent="main_dialog"]
+visible = false
+position = Vector2( -146, 428 )
+frames = SubResource( 7 )
+animation = "eila"
+frame = 1
+playing = true
+
+[node name="Textbox" type="ColorRect" parent="main_dialog"]
+modulate = Color( 1, 1, 1, 0.498039 )
+show_behind_parent = true
+margin_top = 480.0
+margin_right = 1032.0
+margin_bottom = 602.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="main_dialog/Textbox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 190.0
+margin_right = -328.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+
+[node name="Tween" type="Tween" parent="main_dialog/Textbox"]
+
+[node name="Name" type="Label" parent="main_dialog/Textbox"]
+margin_left = 18.0
+margin_right = 128.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+text = "Shiolp"
+align = 1
+
+[connection signal="tween_completed" from="main_dialog/Textbox/Tween" to="main_dialog" method="_on_Tween_tween_completed"]
